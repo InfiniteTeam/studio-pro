@@ -28,6 +28,9 @@
     "turbo": "^1.8.1",
     "typescript": "^4.9.5"
   },
+  "resolutions": {
+    "discord-api-types": "0.37.20"
+  },
   "workspaces": [
     "apps/**",
     "packages/**"
