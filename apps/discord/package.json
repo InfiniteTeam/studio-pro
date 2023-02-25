@@ -4,7 +4,7 @@
   "type": "module",
   "name": "discord",
   "scripts": {
-    "start": "yarn build && node .",
+    "start": "rimraf build && yarn build && node .",
     "start:node": "node .",
     "dev": "nodemon --exec yarn start --watch src -e ts,json",
     "build": "tsc && tsc-alias",
@@ -18,6 +18,7 @@
     "dokdo": "^0.6.2",
     "dotenv": "^16.0.3",
     "node-fetch": "3.3.0",
+    "rimraf": "^4.1.2",
     "uuid": "^9.0.0",
     "winston": "^3.8.2"
   },

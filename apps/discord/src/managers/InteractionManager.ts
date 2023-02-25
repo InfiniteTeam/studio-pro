@@ -62,7 +62,7 @@ export default class InteractionManager extends BaseManager {
     return this.interactions.find((_, id) => {
       if (typeof id === 'string' && id === customId) return true
 
-      id.includes(customId)
+      return id.includes(customId)
     })
   }
 

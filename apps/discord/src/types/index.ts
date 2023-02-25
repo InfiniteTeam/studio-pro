@@ -79,3 +79,4 @@ export type EmbedType =
 
 export * from './structures.js'
 export * from './command.js'
+export * from './pm2.js'
