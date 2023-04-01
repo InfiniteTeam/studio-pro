@@ -1,4 +1,4 @@
-import { ChannelType, Guild, WebhookClient } from 'discord.js'
+import { Guild, WebhookClient } from 'discord.js'
 import BaseManager from './BaseManager.js'
 import Embed from '@utils/Embed'
 import Logger from '@utils/Logger'

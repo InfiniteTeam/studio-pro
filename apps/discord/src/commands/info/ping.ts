@@ -1,7 +1,7 @@
 import { BaseCommand } from '@structures/Command'
-import Discord from 'discord.js'
 import Embed from '@utils/Embed'
 import { SlashCommandBuilder } from '@discordjs/builders'
+import { PermissionFlagsBits } from 'discord.js'
 
 export default new BaseCommand(
   {
@@ -12,7 +12,7 @@ export default new BaseCommand(
   async (client, message, args) => {
     let embed = new Embed(client, 'warn').setTitle('핑 측정중...')
 
-    let m = await message.reply({
+    const m = await message.reply({
       embeds: [embed]
     })
     embed = new Embed(client, 'success').setTitle('PONG!').addFields([
@@ -41,13 +41,14 @@ export default new BaseCommand(
     data: new SlashCommandBuilder()
       .setName('ping')
       .setDescription('핑을 측정합니다.')
+      .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
       .toJSON(),
     options: {
       name: 'ping',
       isSlash: true
     },
     async execute(client, interaction) {
-      let PingEmbed = new Embed(client, 'success')
+      const PingEmbed = new Embed(client, 'success')
         .setTitle('핑 측정')
         .addFields([
           {

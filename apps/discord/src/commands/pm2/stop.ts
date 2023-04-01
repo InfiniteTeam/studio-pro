@@ -1,7 +1,7 @@
 import { SlashCommand } from '@structures/Command'
 import { convertEmbed, getPm2List } from '@utils/Utils'
 import { execSync } from 'child_process'
-import { codeBlock, SlashCommandBuilder } from 'discord.js'
+import { codeBlock, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js'
 
 export default new SlashCommand(
   new SlashCommandBuilder()
@@ -13,6 +13,7 @@ export default new SlashCommand(
         .setName('name')
         .setDescription('종료할 프로세스를 선택해주세요.')
     )
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageChannels)
     .toJSON(),
   async (client, interaction) => {
     const name = interaction.options.getString('name')
@@ -29,7 +30,7 @@ export default new SlashCommand(
       const embed = convertEmbed(list, client)
 
       await interaction.editReply({
-        content: '재시작 완료!',
+        content: '프로스스 종료 완료!',
         embeds: [embed]
       })
     } catch (error) {
